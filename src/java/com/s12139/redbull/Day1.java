@@ -3,6 +3,7 @@ package com.s12139.redbull;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -70,5 +71,35 @@ public class Day1 {
         System.out.println("output :-" + largestOddInteger("4244222222222"));
         System.out.println("output :-" + largestOddInteger("423523382849374398574359435743987457439574574359875437857435757584388888888888888888888"));
     }
+
+    /**
+     * Easy
+     * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+     *
+     * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+     *
+     * You can return the answer in any order.
+     */
+
+    public int[] twoSum(int[] nums, int target) {
+        int[] finaInt = new int[2];
+        for (int i = 0; i< nums.length-1;i++){
+            for(int j = i+1; j<=nums.length-1;j++) {
+                if (target == (nums[i] + nums[j])) {
+                    finaInt[0] = i;
+                    finaInt[1] = j;
+                }
+            }
+        }
+        return finaInt;
+    }
+
+    @Test
+    public void testTwoSum(){
+        System.out.println(Arrays.toString(twoSum(new int[] {3,2,4},6)));
+        System.out.println(Arrays.toString(twoSum(new int[] {2,7,11,15},9)));
+        System.out.println(Arrays.toString(twoSum(new int[] {3,2,3},6)));
+    }
+
 
 }
